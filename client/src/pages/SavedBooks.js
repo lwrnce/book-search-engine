@@ -8,7 +8,7 @@ import { removeBookId } from '../utils/localStorage';
 
 const SavedBooks = () => {
   const { loading, data } = useQuery(GET_ME);
-  const [removeBook] = useMutation(REMOVE_BOOK);
+  const [deleteBook] = useMutation(REMOVE_BOOK);
   
   const userData = data?.me || {};
   
@@ -21,7 +21,7 @@ const SavedBooks = () => {
     }
 
     try {
-    await removeBook({
+    await deleteBook({
       variables: { bookId }
     });
 
